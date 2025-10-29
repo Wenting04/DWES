@@ -6,9 +6,16 @@ function creaJugador(){
     // Crear array jugadores para almacenar los 4
     $jugadores = array();
 
-    for ($i = 0; $i < 4; $i++) { 
-        $jugador = $_POST["nombre$i"];
-        $jugadores[] = $jugador;
+    $seguir = true;
+    $cont = 0;
+
+    while (seguir){
+        if ( isset($jugador = $_POST["nombre$cont"];) ){
+            $jugador = $_POST["nombre$cont"];
+            $jugadores[] = $jugador;
+        } else {
+            $seguir = false;
+        }
     }
 
     return $jugadores;
@@ -55,4 +62,5 @@ function limpiar($data) {
     $data = htmlspecialchars($data);
     return $data;
 }
+
 ?>
