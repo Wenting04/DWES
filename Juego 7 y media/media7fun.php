@@ -7,8 +7,6 @@ function crearJugador($jug){
         "nombre" => $jugador[0],
         "apellido" => $jugador[1]
     ];
-
-    /* Para llamar por ejemplo el apellido del primero: $jugadores[0]["apellido"] */
 }
 
 // Crear array con la baraja entera y desordena
@@ -41,10 +39,6 @@ function jugar($baraja, $jugadores, $numCartas){
         $cartas = array();
 
         // Repartir cartas (almacenar en array $cartas las cartas de cada jugador)
-        /* array_slice(array $array, int $iffset, ?int $length = null)
-            $array -> Array para usar
-            $offset -> Desde qué posición empezar
-            $length -> Cuántos elementos extraer */
         $cartas = array_slice($baraja, $cont, $numCartas);
         $cont += $numCartas;
 
@@ -58,12 +52,6 @@ function jugar($baraja, $jugadores, $numCartas){
             "premio" => 0
         ];
     }
-
-    /* Para acceder
-    Por ejemplo: al nombre del 1º jugador
-        echo $juego[0]["jugador"]["nombre"];
-    Por ejemplo 2: 3º carta del 2º jugador
-        echo $juego[1]["cartas"][2]; // A♥ */
 
     return $juego;
 }
@@ -155,9 +143,6 @@ function imprimir($juego){
 }
 
 // Imprimir al fichero
-/* En fichero (apuestas_ddmmaahhmiss.txt) [separados por #]:
-- InicialNombre e InicialApellido # Puntuación # Cantidad ganada por dicho jugador
-- TOTALPREMIOS # Cantidad ganadores # Cantidad total repartida */
 function fichero($juego){
 
     // Declarar nombre del fichero (apuestas_DíaMesAñoHoraMinutosSegundos.txt)
@@ -176,11 +161,11 @@ function fichero($juego){
         $datos[2] = $i["valor"];
         $datos[3] = $i["premio"];
 
-        // COncatenar usando # o meter
+        // COncatenar usando #
         $todo1 = implode("#", $datos);
 
         // Introducir en fichero
-        fwrite($archivo, $todo1. PHP_EOL); // PHP_EOL -> Salto de línea
+        fwrite($archivo, $todo1. PHP_EOL);
     }
 
     /* - -- TOTALPREMIO -- - */
